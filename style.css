@@ -18,6 +18,10 @@ body, html {
   border-bottom: 1px solid #ddd;
 }
 
+.top-bar a {
+  padding: 0 5px;
+}
+
 h1 {
   font-size: 1.4rem;
   font-weight: 600;
