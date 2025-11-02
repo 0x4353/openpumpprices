@@ -1,0 +1,38 @@
+{
+  "name": "PetrolPriceMap",
+  "description": "Map of petrol stations and their prices, powered by Open Data.",
+  "start_url": "/",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "images/favicon-vector.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any monochrome"
+    },
+    {
+      "src": "images/favicon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any monochrome"
+    },
+    {
+      "src": "images/favicon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any monochrome"
+    },
+    {
+      "src": "images/maskable-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable"
+    },
+    {
+      "src": "images/maskable-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ]
+}
