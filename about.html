@@ -46,6 +46,14 @@
     Neither the CMA nor I check the accuracy of the data. No other data such as
     crowd sourced data is used.</p>
 
+    <h5>What does the Refresh Data button do?</h5>
+    <p>Fuel price data is fetched by your browser and stored in the local
+    storage. On new page loads, the cached data in local storage is used for
+    the next day. The Refresh Data button invalidates the cache and reloads
+    the page, forcing teh data to be re-fetched. Given source prices are
+    typically updated daily, it shouldn't usually be necessary to use this
+    button.</p>
+
     <h5>Why are you using 'E10' and 'SDV' codes for the fuel type picker?</h5>
     <p>Because it's what's used in the data provided by retailers, and it's
     shorter ☺. E10 is standard petrol, and B7 is standard diesel. E10 is
