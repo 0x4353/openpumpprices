@@ -19,7 +19,7 @@ body, html {
 }
 
 .top-bar a {
-  padding: 0 5px;
+  padding: 0 10px;
 }
 
 h1 {
@@ -31,6 +31,15 @@ h1 {
 h1 a {
   text-decoration: none;
   color: #222;
+}
+
+@media (max-width: 600px) {
+  .top-bar {
+    flex-direction: column;
+  }
+  nav {
+    margin-top: 5px;
+  }
 }
 
 header {
