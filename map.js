@@ -38,7 +38,7 @@ const brandToLogo = {
 };
 
 // function to normalise brand and return logo path
-function getBrandLogo(brand) {
+export function getBrandLogo(brand) {
   const key = brand.toLowerCase().replace(/[^a-z]/g, "");
   return `/images/brands/${brandToLogo[key] || "default.png"}`;
 }
@@ -99,6 +99,25 @@ window.toggleNerdInfo = function(toggleBtn) {
   }
 }
 
+// helper functions for favourite buttons
+window.getFavourites = () => {
+  return JSON.parse(localStorage.getItem('favourites') || '[]');
+};
+
+window.isFavourite = (siteId) => getFavourites().includes(siteId);
+
+window.toggleFavourite = (siteId, btn) => {
+  let favs = getFavourites();
+  if (favs.includes(siteId)) {
+    favs = favs.filter(id => id !== siteId);
+    btn.classList.remove('favourited');
+  } else {
+    favs.push(siteId);
+    btn.classList.add('favourited');
+  }
+  localStorage.setItem('favourites', JSON.stringify(favs));
+};
+
 // add GeoJSON of stations to map
 export function addStationsToMap(stations, fuelType) {
   if (!map) throw new Error("Map not initialized");
@@ -132,7 +151,10 @@ export function addStationsToMap(stations, fuelType) {
         <div class="station-popup">
           <img src="${getBrandLogo(brand)}" alt="${brand}"/>
           <div>
-            <b>${brand}</b><br>
+            <span class="brand-inline">
+              <b>${brand}</b>
+              <button class="fav-btn" onclick="toggleFavourite('${site_id}', this)"></button>
+            </span><br>
             ${address}<br>
             ${postcode}<br>
             ${priceInfo}
@@ -146,6 +168,20 @@ export function addStationsToMap(stations, fuelType) {
         </div>
       `;
       layer.bindPopup(popupContent);
+
+      layer.on('popupopen', () => {
+        const popupEl = layer.getPopup().getElement();
+        const favBtn = popupEl.querySelector('.fav-btn');
+        if (!favBtn) return;
+
+        const siteId = layer.feature.properties.site_id;
+        if (getFavourites().includes(siteId)) {
+          favBtn.classList.add('favourited');
+        } else {
+          favBtn.classList.remove('favourited');
+        }
+      });
+
 
       /*
       layer.on('popupopen', () => {
