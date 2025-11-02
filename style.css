@@ -63,6 +63,7 @@ main {
 }
 
 .fav-station {
+  position: relative;
   display: flex;
   border-radius: 10px;
   padding: 1em;
@@ -79,6 +80,22 @@ main {
   height: 5em;
   width: 5em;
   padding-right: 1em;
+}
+
+.remove-fav {
+  position: absolute;
+  top: 0.4em;
+  right: 0.6em;
+  border: none;
+  background: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #aaa;
+  line-height: 1;
+}
+
+.remove-fav:hover {
+  color: red;
 }
 
 button {

@@ -9,6 +9,13 @@ window.refreshData = () => {
   window.location.reload();
 }
 
+window.removeFavourite = (siteId) => {
+  let favs = JSON.parse(localStorage.getItem('favourites')) || [];
+  favs = favs.filter(id => id !== siteId);
+  localStorage.setItem('favourites', JSON.stringify(favs));
+  document.querySelector(`[data-site-id="${siteId}"]`)?.remove();
+}
+
 async function loadFavourites() {
   const favouritesList = document.getElementById('favourites-list');
   const favourites = JSON.parse(localStorage.getItem('favourites')) || [];
@@ -22,7 +29,9 @@ async function loadFavourites() {
   const favStations = stations.filter(s => favourites.includes(s.site_id));
 
   favouritesList.innerHTML = favStations.map(station => `
-    <div class="fav-station">
+    <div class="fav-station" data-site-id="${station.site_id}">
+      <button class="remove-fav" aria-label="Remove favourite"
+              onclick="removeFavourite('${station.site_id}')">&times;</button>
       <img src="${getBrandLogo(station.brand)}" alt="${station.brand} Logo" />
       <div>
       <b>${station.brand}</b>
