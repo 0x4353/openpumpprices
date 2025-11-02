@@ -1,6 +1,14 @@
 import { getStations } from './fetchData.js';
 import { getBrandLogo } from './map.js'
 
+window.refreshData = () => {
+  // invalidate cache
+  localStorage.removeItem("stations_last_fetch");
+
+  // reload page
+  window.location.reload();
+}
+
 async function loadFavourites() {
   const favouritesList = document.getElementById('favourites-list');
   const favourites = JSON.parse(localStorage.getItem('favourites')) || [];
