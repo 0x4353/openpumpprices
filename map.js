@@ -40,7 +40,7 @@ const brandToLogo = {
 // function to normalise brand and return logo path
 export function getBrandLogo(brand) {
   const key = brand.toLowerCase().replace(/[^a-z]/g, "");
-  return `/images/brands/${brandToLogo[key] || "default.png"}`;
+  return `./images/brands/${brandToLogo[key] || "default.png"}`;
 }
 
 
