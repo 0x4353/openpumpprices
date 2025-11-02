@@ -51,6 +51,10 @@ header {
   gap: 10px;
 }
 
+input[type="radio"] {
+  margin-right: 0;
+}
+
 main {
   max-width: 700px;
   width: 90%;

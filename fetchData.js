@@ -114,19 +114,3 @@ export async function getStations(forceRefresh = false) {
   return stations;
 }
 
-// extract fuel types in stations array
-export function extractFuelTypes(stations) {
-  // set to only store unique values
-  const allFuelTypes = new Set();
-
-  // Loop through stations and get all unique fuel types
-  stations.forEach(station => {
-    Object.keys(station.prices).forEach(fuelType => {
-      allFuelTypes.add(fuelType); // Add each fuel type to the set (ensures uniqueness)
-    });
-  });
-
-  console.log(`✅ extracted ${allFuelTypes.size} fuel types:`, allFuelTypes);
-
-  return Array.from(allFuelTypes); // Convert set to array
-}

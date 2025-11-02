@@ -181,30 +181,6 @@ export function addStationsToMap(stations, fuelType) {
           favBtn.classList.remove('favourited');
         }
       });
-
-
-      /*
-      layer.on('popupopen', () => {
-        const popupEl = layer.getPopup().getElement();
-        console.log(popupEl);
-        const toggleBtn = popupEl.querySelector('.toggle-nerd');
-        const nerdDiv = popupEl.querySelector('.nerd-mode');
-
-        // wait for DOM to render
-        if (toggleBtn && nerdDiv && !toggleBtn.dataset.listenerAttached) {
-          toggleBtn.addEventListener('click', () => {
-            if (nerdDiv.style.display === 'none') {
-              nerdDiv.style.display = 'block';
-              toggleBtn.textContent = 'Hide nerd info';
-            } else {
-              nerdDiv.style.display = 'none';
-              toggleBtn.textContent = 'Show nerd info';
-            }
-          });
-          toggleBtn.dataset.listenerAttached = true;
-        }
-      });
-      */
     }
   });
 

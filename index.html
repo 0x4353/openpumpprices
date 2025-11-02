@@ -27,7 +27,17 @@
   </div>
 
   <header>
-    <div class="fuel-selector"><b>Fuel: </b></div>
+    <div class="fuel-selector">
+      <b>Fuel: </b>
+      <input type="radio" name="fuelType" value="E10" id="E10" checked>
+      <label for="E10">E10</label>
+      <input type="radio" name="fuelType" value="E5" id="E5">
+      <label for="E5">E5</label>
+      <input type="radio" name="fuelType" value="B7" id="B7">
+      <label for="B7">B7</label>
+      <input type="radio" name="fuelType" value="SDV" id="SDV">
+      <label for="SDV">SDV</label>
+    </div>
     <button onclick="refreshData()">Refresh Data</button>
   </header>
   
