@@ -134,7 +134,9 @@ export function addStationsToMap(stations, fuelType) {
   const geojson = stationsToGeoJSON(stations);
 
   // Create a marker cluster group
-  const markers = L.markerClusterGroup();
+  const markers = L.markerClusterGroup({
+    showCoverageOnHover: false
+  });
 
   geoJsonLayer = L.geoJSON(geojson, {
     // custom icon
