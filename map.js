@@ -8,7 +8,16 @@ let map, geoJsonLayer;
 export function initMap() {
   const L = window.L; // get L variable from global
   
-  map = L.map('map').setView([54.5, -3], 6);
+  // create map initially centered on and bounded to uk
+  map = L.map('map', {
+    center: [54.5, -3],
+    zoom: 6,
+    minZoom: 5,
+    maxBounds: [
+      [49.5, -10.5],
+      [61.5, 2.0]
+    ] 
+  });
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution:
