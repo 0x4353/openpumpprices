@@ -33,6 +33,7 @@ h1 a {
   color: #222;
 }
 
+/* responsive header bar for small screens */
 @media (max-width: 600px) {
   .top-bar {
     flex-direction: column;
@@ -42,6 +43,15 @@ h1 a {
   }
 }
 
+/* responsive main body */
+main {
+  max-width: 700px;
+  width: 90%;
+  margin: 1em auto;
+  padding: 0 1em;
+}
+
+/* header bar with refresh button and fuel selector */
 header {
   display: flex;
   justify-content: space-between;
@@ -51,17 +61,33 @@ header {
   gap: 10px;
 }
 
+button {
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+button:hover {
+  background: #eaeaea;
+}
+
 input[type="radio"] {
   margin-right: 0;
 }
 
-main {
-  max-width: 700px;
-  width: 90%;
-  margin: 1em auto;
-  padding: 0 1em;
+.fuel-selector {
+  margin: 10px;
+  justify-content: center;
+  gap: 20px;
 }
 
+.fuel-selector label {
+  font-size: 16px;
+}
+
+/* cards for favourites page */
 .fav-station {
   position: relative;
   display: flex;
@@ -98,32 +124,10 @@ main {
   color: red;
 }
 
-button {
-  background: #f5f5f5;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 4px 8px;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
-button:hover {
-  background: #eaeaea;
-}
-
+/* map page */
 #map {
   flex-grow: 1;
 }
-
-.fuel-selector {
-  margin: 10px;
-  justify-content: center;
-  gap: 20px;
-}
-
-.fuel-selector label {
-  font-size: 16px;
-}
-
 
 /* Custom marker for petrol stations */
 .station-icon {
@@ -169,6 +173,7 @@ button:hover {
   filter: drop-shadow(0 3px 5px rgba(0,0,0,0.3))
 }
 
+/* popup for petrol stations */
 .station-popup {
   display: flex;
   align-items: flex-start;
