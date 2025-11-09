@@ -21,6 +21,12 @@ body.dark-mode {
   --button-bg: #333;
   --button-hover-bg: #444;
   --shadow-color: rgba(0, 0, 0, 0.6);
+  .leaflet-layer,
+  .leaflet-control-zoom-in,
+  .leaflet-control-zoom-out,
+  .leaflet-control-attribution {
+    filter: brightness(0.65) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7);
+  }
 }
 
 /* Optional: auto dark mode based on system preference */
@@ -35,6 +41,12 @@ body.dark-mode {
     --button-bg: #333;
     --button-hover-bg: #444;
     --shadow-color: rgba(0, 0, 0, 0.6);
+  }
+  .leaflet-layer,
+  .leaflet-control-zoom-in,
+  .leaflet-control-zoom-out,
+  .leaflet-control-attribution {
+    filter: brightness(0.65) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7);
   }
 }
 
