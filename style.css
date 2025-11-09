@@ -1,12 +1,57 @@
+/* dark/light mode variables */
+:root {
+  --bg-color: #fff;
+  --text-color: #222;
+  --link-color: #0066cc;
+  --border-color: #ddd;
+  --star-color: #444;
+  --card-bg: #fff;
+  --button-bg: #f5f5f5;
+  --button-hover-bg: #eaeaea;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode {
+  --bg-color: #1c1c1e;
+  --text-color: #e6e6e6;
+  --link-color: #66aaff;
+  --border-color: #333;
+  --star-color: #ccc;
+  --card-bg: #2a2a2d;
+  --button-bg: #333;
+  --button-hover-bg: #444;
+  --shadow-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Optional: auto dark mode based on system preference */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #1c1c1e;
+    --text-color: #e6e6e6;
+    --link-color: #66aaff;
+    --border-color: #333;
+    --star-color: #ccc;
+    --card-bg: #2a2a2d;
+    --button-bg: #333;
+    --button-hover-bg: #444;
+    --shadow-color: rgba(0, 0, 0, 0.6);
+  }
+}
+
 /* Reset & layout basics */
 body, html {
   margin: 0;
   padding: 0;
   height: 100%;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  color: #222;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   display: flex;
   flex-direction: column;
+}
+
+a {
+  color: var(--link-color);
 }
 
 /* Header area */
@@ -15,7 +60,7 @@ body, html {
   justify-content: space-between;
   align-items: center;
   padding: 10px 15px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .top-bar a {
@@ -30,7 +75,7 @@ h1 {
 
 h1 a {
   text-decoration: none;
-  color: #222;
+  color: var(--text-color);
 }
 
 /* responsive header bar for small screens */
@@ -62,15 +107,16 @@ header {
 }
 
 button {
-  background: #f5f5f5;
-  border: 1px solid #ccc;
+  background: var(--button-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
   border-radius: 4px;
   padding: 4px 8px;
   cursor: pointer;
   font-size: 0.9rem;
 }
 button:hover {
-  background: #eaeaea;
+  background: var(--button-hover-bg);
 }
 
 input[type="radio"] {
@@ -93,7 +139,7 @@ input[type="radio"] {
   display: flex;
   border-radius: 10px;
   padding: 1em;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 10px var(--shadow-color);
   margin: 1em 0;
 }
 
@@ -130,8 +176,20 @@ input[type="radio"] {
 }
 
 /* Custom marker for petrol stations */
+/* override leaflet popup colours */
+.leaflet-popup-content-wrapper {
+  background: var(--card-bg);
+}
+
+.leaflet-popup-tip {
+  background: var(--card-bg);
+}
+
+/* styling for inner-popup content */
 .station-icon {
   display: flex;
+  background: var(--card-bg) !important;
+  color: var(--text-color);
   flex-direction: column;
   align-items: center;
   text-align: center;
@@ -166,11 +224,11 @@ input[type="radio"] {
   height: 0;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
-  border-top: 8px solid white;
+  border-top: 8px solid var(--card-bg);
 }
 
 .station-icon {
-  filter: drop-shadow(0 3px 5px rgba(0,0,0,0.3))
+  filter: drop-shadow(0 3px 5px var(--shadow-color));
 }
 
 /* popup for petrol stations */
@@ -178,12 +236,15 @@ input[type="radio"] {
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  mid-width: 200px;
+  min-width: 200px;
+  background: var(--card-bg);
+  color: var(--text-color);
 }
 
 .station-popup img {
   width: 32px;
   height: 32px;
+  margin-top: 6px;
 }
 
 .station-popup button {
@@ -210,7 +271,7 @@ button.fav-btn {
   margin-left: 4px;
   line-height: 1;
   font-size: 1.5em;
-  color: #444;
+  color: var(--star-color);
 }
 
 button.fav-btn::before {
