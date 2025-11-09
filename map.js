@@ -30,26 +30,26 @@ export function initMap() {
 
 // map (semi) normalised names to logo filenames
 const brandToLogo = {
-  "bp": "BP.png",
-  "jet": "JET.png",
-  "shell": "SHELL.png",
-  "texaco": "TEXACO.png",
-  "esso": "ESSO.png",
-  "valero": "VALERO.png",
-  "murco": "MURCO.png",
-  "morrisons": "MORRISONS.png",
-  "asda": "ASDA.png",
-  "asdaexpress": "ASDA.png",
-  "sainsburys": "SAINSBURYS.png",
-  "tesco": "TESCO.png",
-  "coop": "COOP.png",
-  "essar": "ESSAR.png"
+  "bp": "BP.webp",
+  "jet": "JET.webp",
+  "shell": "SHELL.webp",
+  "texaco": "TEXACO.webp",
+  "esso": "ESSO.webp",
+  "valero": "VALERO.webp",
+  "murco": "MURCO.webp",
+  "morrisons": "MORRISONS.webp",
+  "asda": "ASDA.webp",
+  "asdaexpress": "ASDA.webp",
+  "sainsburys": "SAINSBURYS.webp",
+  "tesco": "TESCO.webp",
+  "coop": "COOP.webp",
+  "essar": "ESSAR.webp"
 };
 
 // function to normalise brand and return logo path
 export function getBrandLogo(brand) {
   const key = brand.toLowerCase().replace(/[^a-z]/g, "");
-  return `./images/brands/${brandToLogo[key] || "default.png"}`;
+  return `./images/brands/${brandToLogo[key] || "default.webp"}`;
 }
 
 
